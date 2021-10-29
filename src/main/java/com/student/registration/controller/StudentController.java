@@ -20,9 +20,9 @@ public class StudentController {
 
     @PostMapping("/student")
    public ResponseEntity<Object> addStudentApi(@RequestBody Student student){
-       Student saved = studentService.addStudent(student);
+        Student saved = studentService.addStudent(student);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/studentClass").buildAndExpand(saved.getStudentClass()).toUri();
+                .path("/{studentClass}").buildAndExpand(saved.getStudentClass()).toUri();
 
        return ResponseEntity.created(location).build();
    }
