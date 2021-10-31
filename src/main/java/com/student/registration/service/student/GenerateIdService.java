@@ -1,4 +1,4 @@
-package com.student.registration.service.studentId;
+package com.student.registration.service.student;
 
 import com.student.registration.model.Student;
 
