@@ -16,12 +16,11 @@ import javax.persistence.Id;
 public class Student {
 
     @Id
-    private Integer id;
     private String firstName;
     private String lastName;
     private String address;
     private Integer pinCode;
-    private Integer mobileNumber;
+    private Long mobileNumber;
     private String email;
     private Integer studentClass;
 
