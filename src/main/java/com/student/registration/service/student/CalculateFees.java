@@ -8,9 +8,11 @@ public class CalculateFees {
     public Integer calcFee(Student student){
         if(student.getStudentClass()>=1 && student.getStudentClass()<=5){
             fees = 5000;
-        }else if(student.getStudentClass()>=6 && student.getStudentClass()<=8){
+        }
+        if(student.getStudentClass()>=6 && student.getStudentClass()<=8){
             fees = 8000;
-        }else if(student.getStudentClass()>=9 && student.getStudentClass()<=12){
+        }
+        if(student.getStudentClass()>=9 && student.getStudentClass()<=12){
             fees = 10000;
         }
         return fees;
