@@ -1,5 +1,6 @@
 package com.student.registration.service.student;
 
+import com.student.registration.constants.StudentConstant;
 import com.student.registration.model.Student;
 import org.springframework.stereotype.Component;
 
@@ -33,4 +34,12 @@ public class StudentCalculation {
         }
         return 0;
     }
+
+
+    public Integer calcDiscount(Student student){
+       int d1 = calcFee(student) - 10;
+       int discount = d1/100;
+       return discount;
+    }
+
 }

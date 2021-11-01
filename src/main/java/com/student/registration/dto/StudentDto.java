@@ -1,20 +1,21 @@
 package com.student.registration.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
+@Builder
+@Entity
 public class StudentDto {
 
     @Id
-    private Integer StudentId;
+    private String StudentId;
+    private String firstName;
     private String lastName;
     private String address;
     private Integer pinCode;

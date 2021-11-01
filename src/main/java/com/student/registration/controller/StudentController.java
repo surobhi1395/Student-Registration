@@ -17,14 +17,14 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping("/student")
-   public ResponseEntity<Student> addStudentApi(@RequestBody Student student){
+   public ResponseEntity<String> addStudentApi(@RequestBody Student student){
         //Student saved = studentService.addStudent(student);
         /* URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{studentClass}").buildAndExpand(saved.getStudentClass()).toUri();
        */
         //return ResponseEntity.ok().body(save);
         //return ResponseEntity.created(URI.create(String.format("/student/", student.getStudentClass()))).body(save);
-        Student save = studentService.addStudent(student);
+        String s = studentService.addStudent(student);
         return ResponseEntity.ok().body(studentService.addStudent(student));
    }
 
