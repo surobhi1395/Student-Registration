@@ -22,12 +22,10 @@ public class StudentController {
         /* URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{studentClass}").buildAndExpand(saved.getStudentClass()).toUri();
        */
-
-        Student save = studentService.addStudent(student);
         //return ResponseEntity.ok().body(save);
-        return ResponseEntity.created
-                (URI.create(String.format("/student/", student.getStudentClass()))).body(save);
-
+        //return ResponseEntity.created(URI.create(String.format("/student/", student.getStudentClass()))).body(save);
+        Student save = studentService.addStudent(student);
+        return ResponseEntity.ok().body(studentService.addStudent(student));
    }
 
 }
