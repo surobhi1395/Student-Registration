@@ -24,7 +24,6 @@ public class StudentServiceImpl implements StudentService{
     public String addStudent(Student student) {
         //Student save = studentRepo.save(student);
         StudentDto dto = studentRepo.save(createStudentDto(student));
-
         return dto.getStudentId();
     }
 
@@ -39,6 +38,7 @@ public class StudentServiceImpl implements StudentService{
                 .studentClass(student.getStudentClass())
                 .lastName(student.getLastName())
                 .firstName(student.getFirstName())
+                .discount(student.getDiscount())
                 .build();
     }
 }

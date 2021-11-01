@@ -23,5 +23,5 @@ public class Student {
     private Long mobileNumber;
     private String email;
     private Integer studentClass;
-
+    private Integer discount;
 }

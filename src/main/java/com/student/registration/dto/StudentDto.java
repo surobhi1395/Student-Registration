@@ -23,5 +23,5 @@ public class StudentDto {
     private String email;
     private Integer studentClass;
     private Integer fees;
-
+    private Integer discount;
 }
