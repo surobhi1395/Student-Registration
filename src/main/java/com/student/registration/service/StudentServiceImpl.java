@@ -52,6 +52,7 @@ public class StudentServiceImpl implements StudentService{
         studentDetails.setEmail(student.getEmail());
 
         StudentDto save = studentRepo.save(studentDetails);
+
         return save;
     }
 

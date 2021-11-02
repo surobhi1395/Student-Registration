@@ -10,19 +10,15 @@ import javax.persistence.Id;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 @Entity
-public class Student {
+public class UpdateStudent {
 
     @Id
-    private String firstName;
-    private String lastName;
     private String address;
-    private Integer pinCode;
-    private Long mobileNumber;
     private String email;
-    private Integer studentClass;
-    private Integer discount;
+    private Integer pinCode;
+    private Integer phoneNumber;
 
 }
