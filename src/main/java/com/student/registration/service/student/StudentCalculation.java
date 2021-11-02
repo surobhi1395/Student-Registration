@@ -35,12 +35,12 @@ public class StudentCalculation {
         return 0;
     }
 
-
     public Integer calcDiscount(Student student){
        int d1 = calcFee(student);
        int d2 = student.getDiscount();
        int discount = d1-(d1*d2/100);
        return discount;
     }
+
 
 }

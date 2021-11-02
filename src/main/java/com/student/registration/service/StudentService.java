@@ -7,4 +7,5 @@ public interface StudentService {
 
    public String addStudent(Student student);
 
+   public Student updateStudent(Student student);
 }

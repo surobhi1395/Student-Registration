@@ -1,20 +1,24 @@
 package com.student.registration.controller;
 
+import com.student.registration.dto.StudentDto;
 import com.student.registration.model.Student;
+import com.student.registration.repository.StudentRepo;
 import com.student.registration.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private StudentRepo studentRepo;
 
     @PostMapping("/student")
    public ResponseEntity<String> addStudentApi(@RequestBody Student student){
@@ -27,5 +31,15 @@ public class StudentController {
         String s = studentService.addStudent(student);
         return ResponseEntity.ok().body(studentService.addStudent(student));
    }
+
+   @PutMapping("/student")
+   public ResponseEntity<Student> updateStudent(@RequestParam(name = "id") String studId,
+                                               @RequestBody Student student){
+
+       Student updateStudent = studentService.updateStudent(student);
+       return ResponseEntity.ok().body(updateStudent);
+       }
+
+
 
 }

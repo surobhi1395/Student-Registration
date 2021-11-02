@@ -41,4 +41,19 @@ public class StudentServiceImpl implements StudentService{
                 .discount(student.getDiscount())
                 .build();
     }
+
+    @Override
+    public Student updateStudent(Student student) {
+        StudentDto studentDetails = studentRepo.getById(studentCalculation.createStuId(student));
+
+        studentDetails.setAddress(student.getAddress());
+        studentDetails.setPinCode(student.getPinCode());
+        studentDetails.setMobileNumber(student.getMobileNumber());
+        studentDetails.setEmail(student.getEmail());
+
+        StudentDto save = studentRepo.save(studentDetails);
+        return save;
+    }
+
+
 }
