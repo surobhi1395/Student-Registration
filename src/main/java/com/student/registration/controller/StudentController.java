@@ -2,6 +2,7 @@ package com.student.registration.controller;
 
 import com.student.registration.dto.StudentDto;
 import com.student.registration.model.Student;
+import com.student.registration.model.UpdateStudent;
 import com.student.registration.repository.StudentRepo;
 import com.student.registration.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +34,10 @@ public class StudentController {
    }
 
    @PutMapping("/student")
-   public ResponseEntity<Student> updateStudent(@RequestParam(name = "id") String studId,
-                                               @RequestBody Student student){
-
-       Student updateStudent = studentService.updateStudent(student);
-       return ResponseEntity.ok().body(updateStudent);
+   public ResponseEntity<String> updateStudent(@RequestParam(name = "id") String studId,
+                                                @RequestBody Student student){
+       studentService.updateStudent(student);
+       return ResponseEntity.ok("Success");
        }
 
 

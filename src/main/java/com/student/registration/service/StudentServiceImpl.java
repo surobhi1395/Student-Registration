@@ -2,10 +2,13 @@ package com.student.registration.service;
 
 import com.student.registration.dto.StudentDto;
 import com.student.registration.model.Student;
+import com.student.registration.model.UpdateStudent;
 import com.student.registration.repository.StudentRepo;
 import com.student.registration.service.student.StudentCalculation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -43,7 +46,8 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Student updateStudent(Student student) {
+    public void updateStudent(Student student) {
+
         StudentDto studentDetails = studentRepo.getById(studentCalculation.createStuId(student));
 
         studentDetails.setAddress(student.getAddress());
@@ -53,7 +57,6 @@ public class StudentServiceImpl implements StudentService{
 
         StudentDto save = studentRepo.save(studentDetails);
 
-        return save;
     }
 
 
