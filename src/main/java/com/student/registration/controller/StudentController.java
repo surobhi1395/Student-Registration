@@ -40,6 +40,11 @@ public class StudentController {
        return ResponseEntity.ok("Success");
        }
 
+   @GetMapping("/student")
+   public List<StudentDto> getAllStudent(){
+        return studentService.getStudent();
+   }
+
 
 
 }

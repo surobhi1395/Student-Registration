@@ -2,13 +2,13 @@ package com.student.registration.service;
 
 import com.student.registration.dto.StudentDto;
 import com.student.registration.model.Student;
-import com.student.registration.model.UpdateStudent;
 import com.student.registration.repository.StudentRepo;
 import com.student.registration.service.student.StudentCalculation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -49,7 +49,9 @@ public class StudentServiceImpl implements StudentService{
     public void updateStudent(Student student) {
 
         StudentDto studentDetails = studentRepo.getById(studentCalculation.createStuId(student));
-
+        if(ObjectUtils.isEmpty(studentDetails)){
+            throw new RuntimeException("Student Id Not Found");
+        }
         studentDetails.setAddress(student.getAddress());
         studentDetails.setPinCode(student.getPinCode());
         studentDetails.setMobileNumber(student.getMobileNumber());
@@ -57,6 +59,11 @@ public class StudentServiceImpl implements StudentService{
 
         StudentDto save = studentRepo.save(studentDetails);
 
+    }
+
+    @Override
+    public List<StudentDto> getStudent() {
+        return studentRepo.findAll();
     }
 
 
