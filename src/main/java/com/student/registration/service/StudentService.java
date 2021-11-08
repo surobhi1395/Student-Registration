@@ -13,4 +13,5 @@ public interface StudentService {
 
    public List<StudentDto> getStudent();
 
+   public String addAllStudents(Student students);
 }

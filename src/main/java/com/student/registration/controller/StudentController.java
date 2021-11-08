@@ -45,6 +45,10 @@ public class StudentController {
         return studentService.getStudent();
    }
 
-
+   @PostMapping("/addAllStudent")
+   public ResponseEntity<String> addAllStudents(@RequestBody Student students){
+       String addAllStudents = studentService.addAllStudents(students);
+       return ResponseEntity.ok(studentService.addAllStudents(students));
+   }
 
 }

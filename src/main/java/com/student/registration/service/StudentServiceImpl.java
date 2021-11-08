@@ -1,6 +1,7 @@
 package com.student.registration.service;
 
 import com.student.registration.dto.StudentDto;
+import com.student.registration.dto.StudentListDto;
 import com.student.registration.model.Student;
 import com.student.registration.repository.StudentRepo;
 import com.student.registration.service.student.StudentCalculation;
@@ -65,6 +66,13 @@ public class StudentServiceImpl implements StudentService{
     public List<StudentDto> getStudent() {
         return studentRepo.findAll();
     }
+
+    @Override
+    public String addAllStudents(Student students) {
+
+        return null;
+    }
+
 
 
 }
