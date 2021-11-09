@@ -2,7 +2,6 @@ package com.student.registration.controller;
 
 import com.student.registration.dto.StudentDto;
 import com.student.registration.model.Student;
-import com.student.registration.model.UpdateStudent;
 import com.student.registration.repository.StudentRepo;
 import com.student.registration.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class StudentController {
@@ -46,9 +44,17 @@ public class StudentController {
    }
 
    @PostMapping("/addAllStudent")
-   public ResponseEntity<String> addAllStudents(@RequestBody Student students){
-       String addAllStudents = studentService.addAllStudents(students);
-       return ResponseEntity.ok(studentService.addAllStudents(students));
+   public ResponseEntity<List<StudentDto>> addAllStudents(@RequestBody List<Student> students){
+       List<StudentDto> addAllStudents = studentService.addAllStudents(students);
+       return ResponseEntity.ok().body(addAllStudents);
+   }
+
+   @PutMapping("/updateStudentFees")
+   public ResponseEntity<String> updateStudentById(@RequestParam(name = "id") String studId,
+                                                   @RequestParam(name = "feesPaid") Integer fees,
+                                                   @RequestBody StudentDto student){
+       studentService.updateStudentFees(student);
+       return ResponseEntity.ok("Success");
    }
 
 }

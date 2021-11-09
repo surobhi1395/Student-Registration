@@ -24,4 +24,7 @@ public class StudentDto {
     private Integer studentClass;
     private Integer fees;
     private Integer discount;
+    private Integer feesPaid;
+    private Integer feesRemaining;
+
 }

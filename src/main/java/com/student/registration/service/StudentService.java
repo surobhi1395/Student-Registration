@@ -13,5 +13,8 @@ public interface StudentService {
 
    public List<StudentDto> getStudent();
 
-   public String addAllStudents(Student students);
+   public List<StudentDto> addAllStudents(List<Student> students);
+
+   public void updateStudentFees(StudentDto studentDto);
+
 }
