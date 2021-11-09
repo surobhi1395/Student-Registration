@@ -93,13 +93,14 @@ public class StudentServiceImpl implements StudentService {
         }).collect(Collectors.toList());
     }
 
-    public void updateStudentFees(StudentDto studentDto) {
-        StudentDto byId = studentRepo.getById(studentDto.getStudentId());
+    public void updateStudentFees(String stuId, Integer fees) {
+        StudentDto byId = studentRepo.getById(stuId);
         if(ObjectUtils.isEmpty(byId)) {
             throw new StudentNotFoundException("Student Id Not Found !");
         }else
-        studentDto.setFeesPaid(studentDto.getFeesPaid());
-        studentCalculation.getRemainingFees(studentDto);
+            byId.setFeesPaid(fees);
+            byId.setFeesRemaining(byId.getFees()-fees);
+            studentRepo.save(byId);
     }
 
 }

@@ -42,13 +42,6 @@ public class StudentCalculation {
        return discount;
     }
 
-    public Integer getRemainingFees(StudentDto student){
-        Integer fees = student.getFees();
-        Integer feesPaid = student.getFeesPaid();
-        Integer remainingFees = fees-feesPaid;
-        return remainingFees;
-    }
-
     public void lastFeesDate(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
         Date date = new Date();

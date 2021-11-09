@@ -51,9 +51,8 @@ public class StudentController {
 
    @PutMapping("/updateStudentFees")
    public ResponseEntity<String> updateStudentById(@RequestParam(name = "id") String studId,
-                                                   @RequestParam(name = "feesPaid") Integer fees,
-                                                   @RequestBody StudentDto student){
-       studentService.updateStudentFees(student);
+                                                   @RequestParam(name = "feesPaid") Integer fees){
+       studentService.updateStudentFees(studId, fees);
        return ResponseEntity.ok("Success");
    }
 
