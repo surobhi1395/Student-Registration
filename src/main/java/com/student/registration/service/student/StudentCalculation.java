@@ -2,6 +2,7 @@ package com.student.registration.service.student;
 
 import com.student.registration.dto.StudentDto;
 import com.student.registration.model.Student;
+import com.student.registration.model.Teacher;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -47,4 +48,6 @@ public class StudentCalculation {
         Date date = new Date();
         simpleDateFormat.format(date);
     }
+
+
 }

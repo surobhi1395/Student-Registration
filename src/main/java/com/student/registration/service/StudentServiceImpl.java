@@ -3,6 +3,7 @@ package com.student.registration.service;
 import com.student.registration.dto.StudentDto;
 import com.student.registration.exception.StudentNotFoundException;
 import com.student.registration.model.Student;
+import com.student.registration.model.Teacher;
 import com.student.registration.repository.StudentRepo;
 import com.student.registration.service.student.StudentCalculation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +55,7 @@ public class StudentServiceImpl implements StudentService {
 
         StudentDto studentDetails = studentRepo.getById(studentCalculation.createStuId(student));
         if (ObjectUtils.isEmpty(studentDetails)) {
-            throw new RuntimeException("Student Id Not Found");
+            throw new StudentNotFoundException("Student Id Not Found");
         }
         studentDetails.setAddress(student.getAddress());
         studentDetails.setPinCode(student.getPinCode());
@@ -102,5 +103,6 @@ public class StudentServiceImpl implements StudentService {
             byId.setFeesRemaining(byId.getFees()-fees);
             studentRepo.save(byId);
     }
+
 
 }

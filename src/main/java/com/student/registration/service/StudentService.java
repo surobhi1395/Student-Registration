@@ -2,6 +2,7 @@ package com.student.registration.service;
 
 import com.student.registration.dto.StudentDto;
 import com.student.registration.model.Student;
+import com.student.registration.model.Teacher;
 
 import java.util.List;
 
