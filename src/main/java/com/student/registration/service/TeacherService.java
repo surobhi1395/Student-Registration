@@ -14,4 +14,6 @@ public interface TeacherService {
 
    public List<TeacherDto> getTeachers();
 
+   public List<TeacherDto> addListOfTeacher(List<Teacher> teacherList);
+
 }

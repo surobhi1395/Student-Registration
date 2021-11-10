@@ -32,6 +32,10 @@ public class TeacherController {
       return teacherService.getTeachers();
     }
 
-
+    @PostMapping("/addTeachers")
+    public ResponseEntity<List<TeacherDto>> addTeachersList(@RequestBody List<Teacher> teacher){
+        List<TeacherDto> teacherDtos = teacherService.addListOfTeacher(teacher);
+        return ResponseEntity.ok().body(teacherDtos);
+    }
 
 }

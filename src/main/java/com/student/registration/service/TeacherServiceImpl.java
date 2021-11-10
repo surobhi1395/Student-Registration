@@ -11,6 +11,7 @@ import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TeacherServiceImpl implements TeacherService{
@@ -62,4 +63,24 @@ public class TeacherServiceImpl implements TeacherService{
         return teacherRepoAll;
     }
 
+    @Override
+    public List<TeacherDto> addListOfTeacher(List<Teacher> teacherList) {
+        List<TeacherDto> teacherDtosList = teacherRepo.saveAll(createTeachersList(teacherList));
+        return teacherDtosList;
+    }
+
+    public List<TeacherDto> createTeachersList(List<Teacher> teacherListDto){
+        return teacherListDto.stream().map(teacher-> {
+            return TeacherDto.builder()
+                    .teacherId(teacherCalculation.createTeacherId(teacher))
+                    .teacherFirstName(teacher.getTeacherFirstName())
+                    .teacherLastName(teacher.getTeacherLastName())
+                    .subject(teacher.getSubject())
+                    .mobileNumber(teacher.getMobileNumber())
+                    .salary(teacher.getSalary())
+                    .age(teacher.getAge())
+                    .address(teacher.getAddress())
+                    .build();
+            }).collect(Collectors.toList());
+    }
 }
