@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -53,6 +54,12 @@ public class TeacherServiceImpl implements TeacherService{
         else
             teacherRepoById.setAge(teacherRepoById.getAge());
             teacherRepoById.setMobileNumber(teacherRepoById.getMobileNumber());
+    }
+
+    @Override
+    public List<TeacherDto> getTeachers() {
+        List<TeacherDto> teacherRepoAll = teacherRepo.findAll();
+        return teacherRepoAll;
     }
 
 }

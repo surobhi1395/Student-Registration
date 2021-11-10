@@ -1,10 +1,13 @@
 package com.student.registration.controller;
 
+import com.student.registration.dto.TeacherDto;
 import com.student.registration.model.Teacher;
 import com.student.registration.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class TeacherController {
@@ -23,5 +26,12 @@ public class TeacherController {
         teacherService.updateTeacherData(teacherId);
         return ResponseEntity.ok().body("Success");
     }
+
+    @GetMapping("/getTeachers")
+    public List<TeacherDto> getAllTeacherData(){
+      return teacherService.getTeachers();
+    }
+
+
 
 }
